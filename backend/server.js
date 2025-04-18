@@ -18,7 +18,7 @@ const allowedOrigins = [
     
     'http://localhost:5173',
     'http://localhost:5001',
-    'https://authentication-otp-app.onrender.com'
+    'https://auth-app-dqt6.onrender.com'
 
   ];
 
