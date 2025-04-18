@@ -5,21 +5,24 @@ import { connectDB } from "./config/db.js";
 import { authRouter } from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import path from 'path';
+import cors from 'cors'
 
 dotenv.config();
 const app = express();
 
+
+
 const __dirname = path.resolve();
 
-// const allowedOrigins = [
+const allowedOrigins = [
     
-//     'http://localhost:5173',
+    'http://localhost:5173',
 
-//   ];
+  ];
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 
 
