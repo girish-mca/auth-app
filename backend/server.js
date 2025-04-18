@@ -3,14 +3,14 @@ import cookieParser from 'cookie-parser';
 import { connectDB } from "./config/db.js";
 import { authRouter } from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
-import { ENV_VARS } from "./config/envVars.js";
+
 import path from 'path';
 import cors from 'cors'
 
 
 const app = express();
 
-const PORT = ENV_VARS.PORT;
+
 
 
 
@@ -33,7 +33,7 @@ app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 
-if (ENV_VARS.NODE_ENV=== 'production') {
+if (process.env.NODE_ENV=== 'production') {
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
   
@@ -46,7 +46,7 @@ if (ENV_VARS.NODE_ENV=== 'production') {
 
 
 
-app.listen(PORT, () => {
-	console.log("Server started at http://localhost:" + PORT);
+app.listen(5001, () => {
+	console.log("Server started at http://localhost:" + 5001);
 	connectDB();
 });
