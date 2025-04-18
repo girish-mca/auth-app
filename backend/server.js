@@ -21,18 +21,16 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 
-app.get("/", (req, res) => {
-  res.send("hi the server is ready");
-});
+
 
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-  // SPA fallback route: must be the *last* route
-  app.get("*", (req, res) => {
+  
+  app.get("*", (req, res) => {  
     res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));  
   });
 }
