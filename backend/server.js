@@ -17,7 +17,8 @@ const __dirname = path.resolve();
 const allowedOrigins = [
     
     'http://localhost:5173',
-    'http://localhost:5001'
+    'http://localhost:5001',
+    'https://authentication-otp-app.onrender.com'
 
   ];
 
