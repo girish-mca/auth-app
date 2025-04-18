@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useMemo } from "react";
 import { useState } from "react";
 import React from "react";
 import { toast } from 'react-toastify';
@@ -10,7 +10,7 @@ export const AppContextProvider = (props)=>{
 
     axios.defaults.withCredentials = true;
 
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001';
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
     const[isLoggedin , setIsLoggedin] = useState(false)
     const[userData , setUserData] = useState(false)
 
@@ -41,15 +41,14 @@ export const AppContextProvider = (props)=>{
         getAuthState()
     },[])
 
-    const value ={
+    const value = useMemo(() => ({
         backendUrl,
         isLoggedin,
         setIsLoggedin,
         userData,
         setUserData,
         getUserData
-
-    }
+    }), [backendUrl, isLoggedin, userData]);
 return (
     
     <AppContext.Provider value={value}>
