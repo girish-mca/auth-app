@@ -38,9 +38,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-const port = process.env.VITE_BACKEND_URL || 5001;
 
-app.listen(port, () => {
+
+app.listen(5001, () => {
   connectDB();
-  console.log(`server is hosted at ${port} `);
+  console.log("server is hosted at http://localhost:5001");
 });
