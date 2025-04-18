@@ -14,7 +14,7 @@ const __dirname = path.resolve();
 
 const allowedOrigins = [
     
-    'http://localhost:5001'
+    'http://localhost:5173'
   ];
 
 app.use(express.json());
