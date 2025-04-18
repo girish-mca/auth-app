@@ -42,9 +42,9 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-const PORT = process.env.PORT || 5001;
+const port = process.env.PORT || 5001;
 
-app.listen(PORT, () => {
+app.listen(port, () => {
   connectDB();
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${port}`);
 });
