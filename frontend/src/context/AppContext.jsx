@@ -3,6 +3,11 @@ import { useState } from "react";
 import React from "react";
 import { toast } from 'react-toastify';
 import axios from "axios";
+import dotenv from 'dotenv'
+
+
+
+
 
 export const AppContext = createContext();
 
@@ -10,7 +15,7 @@ export const AppContextProvider = (props)=>{
 
     axios.defaults.withCredentials = true;
 
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
     const[isLoggedin , setIsLoggedin] = useState(false)
     const[userData , setUserData] = useState(false)
 

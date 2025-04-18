@@ -2,11 +2,13 @@ import express from "express";
 import cookieParser from 'cookie-parser';
 import { connectDB } from "./config/db.js";
 import { authRouter } from "./routes/authRoutes.js";
+import dotenv from 'dotenv'
 import userRouter from "./routes/userRoutes.js";
 
 import path from 'path';
 import cors from 'cors'
 
+ dotenv.config()
 
 const app = express();
 
@@ -47,6 +49,6 @@ if (process.env.NODE_ENV=== 'production') {
 
 
 app.listen(5001, () => {
-	console.log("Server started at http://localhost:" + 5001);
+	console.log("Server started at http://localhost:5001");
 	connectDB();
 });
