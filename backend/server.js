@@ -42,9 +42,9 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-const port = process.env.PORT || 5001;
 
-app.listen(port, () => {
+
+app.listen(5001,'0.0.0.0', () => {
   connectDB();
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on all interface`);
 });
