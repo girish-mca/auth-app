@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import { connectDB } from "./config/db.js";
 import { authRouter } from "./routes/authRoutes.js";
@@ -11,15 +12,15 @@ const app = express();
 
 const __dirname = path.resolve();
 
-// const allowedOrigins = [
+const allowedOrigins = [
     
-//     'http://localhost:5173',
-//     'http://localhost:5001'
-//   ];
+    'http://localhost:5173',
+    'http://localhost:5001'
+  ];
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 
 
@@ -35,7 +36,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(5001, () => {
+const port = process.env.VITE_BACKEND_URL || 5001;
+
+app.listen(port, () => {
   connectDB();
-  console.log("server is hosted at http://localhost:5001");
+  console.log(`server is hosted at ${port} `);
 });
