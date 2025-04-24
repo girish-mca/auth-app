@@ -20,9 +20,10 @@ const __dirname = path.resolve();
 
 const allowedOrigins = [
     
-    'http://localhost:5173',
     'http://localhost:5001',
-    'https://auth-app-dqt6.onrender.com'
+    'http://localhost:5173'
+
+    
 
   ];
 
@@ -48,9 +49,9 @@ if (process.env.NODE_ENV=== 'production') {
 
 
 
-const PORT = process.env.PORT || 5001;
 
-app.listen(PORT, () => {
-	console.log(`Server started at http://localhost:${PORT}`);
+
+app.listen(5001, () => {
+	console.log(`Server started at http://localhost:5001`);
 	connectDB();
 });
